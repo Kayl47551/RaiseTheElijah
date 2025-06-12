@@ -8,7 +8,7 @@ public class Hand : MonoBehaviour
     Rigidbody2D rigibody2D;
 
     GameObject holding = null;
-    Holdable holdable = null;
+    Entity entity = null;
     GameObject hoveringOver = null;
 
     private void Start()
@@ -27,14 +27,14 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Holdable temp = collision.gameObject.GetComponent<Holdable>();
+        Entity temp = collision.gameObject.GetComponent<Entity>();
         if (temp != null)
             hoveringOver = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Holdable temp = collision.gameObject.GetComponent<Holdable>();
+        Entity temp = collision.gameObject.GetComponent<Entity>();
         if (temp != null)
             hoveringOver = null;
     }
@@ -44,19 +44,19 @@ public class Hand : MonoBehaviour
         if (hoveringOver != null && holding == null && Input.GetMouseButtonDown(0))
         {
             holding = hoveringOver;
-            holdable = holding.GetComponent<Holdable>();
-            holdable.state = Holdable.State.Held;
+            entity = holding.GetComponent<Entity>();
             holding.transform.parent = transform;
+            entity.changeState(Entity.State.Held);
         }
         else if (Input.GetMouseButton(0) == false)
         {
             if (holding != null)
             {
+                entity.changeState(Entity.State.Floor);
                 holding.transform.parent = null;
-                holdable.state = Holdable.State.Falling;
             }
             holding = null;
-            holdable = null;
+            entity = null;
         }
     }
 

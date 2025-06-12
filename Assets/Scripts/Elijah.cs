@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Elijah : Holdable
+public class Elijah : Entity
 {
     int hunger = 100;
     int thirst = 100;
