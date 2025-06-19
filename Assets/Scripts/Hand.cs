@@ -7,9 +7,11 @@ public class Hand : MonoBehaviour
 {
     Rigidbody2D rigibody2D;
 
-    GameObject holding = null;
-    Entity entity = null;
-    GameObject hoveringOver = null;
+    public GameObject holding = null;
+    public Entity entity = null;
+    public GameObject hoveringOver = null;
+
+    public int elijahPoints = 0;
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class Hand : MonoBehaviour
         holdCheck();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Entity temp = collision.gameObject.GetComponent<Entity>();
         if (temp != null)
