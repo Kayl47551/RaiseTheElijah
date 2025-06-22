@@ -5,25 +5,29 @@ public class Elijah : Entity
 {
     public GameObject elijahPointsPrefab;
 
-    float hunger = 100;
-    float thirst = 100;
-    public float happiness = 100000.0f;
-    public float addiction = 1000.0f;
+    public float hunger = 50;
+    public float thirst = 100;
+    public float happiness = 10;
+    public float addiction = 0;
 
     float sadnessMulti = 0;
     public float sadnessMultiMulti = 0.01f;
     float hungerDebuff = 0;
     float thirstDebuff = 0;
 
-    int elijahPointsCD = 2;
+    int elijahPointsCD = 15;
     float elijahPoints = 0;
     float elijahPointsTimer;
     GameObject elijahPointsObject;
-    float elijahPointsMulti = 0.01f;
+    float elijahPointsMulti = 0.02f;
 
     protected override void Start()
     {
         base.Start();
+        Status.instance.updateHungerDisplay(hunger);
+        Status.instance.updateThirstDisplay(thirst);
+        Status.instance.updateHappinessDisplay((int)happiness);
+        Status.instance.updateAddictionDisplay((int)addiction);
         elijahPointsTimer = elijahPointsCD;
     }
 
@@ -44,7 +48,7 @@ public class Elijah : Entity
 
         // decreases happiness
         if (happiness > 0)
-            updateHappiness(-(Time.deltaTime * sadnessMulti * hungerDebuff * thirstDebuff));
+            updateHappiness(-(Time.deltaTime * ((sadnessMulti * hungerDebuff * thirstDebuff) + ((hungerDebuff - 1) * (thirstDebuff - 1)))));
 
         // decreases addiction
         if (addiction > 0)
@@ -64,7 +68,7 @@ public class Elijah : Entity
        
     }
 
-    void updateHunger(float hunger)
+    public void updateHunger(float hunger)
     {
         this.hunger = Mathf.Clamp(this.hunger + hunger, 0, 100);
         if (hunger <= 0)
@@ -74,7 +78,7 @@ public class Elijah : Entity
         Status.instance.updateHungerDisplay(this.hunger);
     }
 
-    void updateThirst(float thirst)
+    public void updateThirst(float thirst)
     {
         this.thirst = Mathf.Clamp(this.thirst + thirst, 0, 100);
         if (thirst <= 0)
@@ -84,17 +88,17 @@ public class Elijah : Entity
         Status.instance.updateThirstDisplay(this.thirst);
     }
 
-    void updateHappiness(float happiness)
+    public void updateHappiness(float happiness)
     {
         if (this.happiness + happiness < 0)
             happiness = 0;
         else
             this.happiness += happiness;
 
-        Status.instance.updateHappinessDislay((int)this.happiness);
+        Status.instance.updateHappinessDisplay((int)this.happiness);
     }
 
-    void updateAddiction(float addiction)
+    public void updateAddiction(float addiction)
     {
         if (this.addiction + addiction < 0)
             happiness = 0;

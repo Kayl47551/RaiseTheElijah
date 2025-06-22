@@ -34,7 +34,7 @@ public class Status : MonoBehaviour
         thirstDisplay.transform.localScale = width;
     }
 
-    public void updateHappinessDislay(int happiness)
+    public void updateHappinessDisplay(int happiness)
     {
         happinessDisplay.text = happiness.ToString();
     }
