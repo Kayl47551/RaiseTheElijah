@@ -1,0 +1,489 @@
+fileFormatVersion: 2
+guid: 01f6f569538e5aa49bd6c55c4ca82b4b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6073179664409695916
+    second: BidGamehandsSpritesheet_0
+  - first:
+      213: 8859527000738812323
+    second: BidGamehandsSpritesheet_1
+  - first:
+      213: -736065903730478861
+    second: BidGamehandsSpritesheet_2
+  - first:
+      213: 2229397593133733789
+    second: BidGamehandsSpritesheet_3
+  - first:
+      213: -6242975008385226247
+    second: BidGamehandsSpritesheet_4
+  - first:
+      213: -8836415759615127884
+    second: BidGamehandsSpritesheet_5
+  - first:
+      213: -169707526327137804
+    second: BidGamehandsSpritesheet_6
+  - first:
+      213: -67746610808390042
+    second: BidGamehandsSpritesheet_7
+  - first:
+      213: -1940692084695289474
+    second: BidGamehandsSpritesheet_8
+  - first:
+      213: 2718018651945502340
+    second: BidGamehandsSpritesheet_9
+  - first:
+      213: -4956061816502748760
+    second: BidGamehandsSpritesheet_10
+  - first:
+      213: 2167196972067903638
+    second: BidGamehandsSpritesheet_11
+  - first:
+      213: -3642056542717051
+    second: BidGamehandsSpritesheet_12
+  - first:
+      213: -5818476410804199972
+    second: BidGamehandsSpritesheet_13
+  - first:
+      213: 2979862044744732190
+    second: BidGamehandsSpritesheet_14
+  - first:
+      213: 7651335364408704880
+    second: BidGamehandsSpritesheet_15
+  - first:
+      213: -4187426542549404890
+    second: BidGamehandsSpritesheet_16
+  - first:
+      213: 6532335611460199324
+    second: BidGamehandsSpritesheet_17
+  - first:
+      213: 3685086772106301447
+    second: BidGamehandsSpritesheet_18
+  - first:
+      213: 5134723120691054919
+    second: BidGamehandsSpritesheet_19
+  - first:
+      213: 5537237967269364500
+    second: BidGamehandsSpritesheet_20
+  - first:
+      213: -8197481685418662244
+    second: BidGamehandsSpritesheet_21
+  - first:
+      213: -4071296707795388988
+    second: BidGamehandsSpritesheet_22
+  - first:
+      213: 2462685493242697802
+    second: BidGamehandsSpritesheet_23
+  - first:
+      213: 28743773224613611
+    second: BidGamehandsSpritesheet_24
+  - first:
+      213: 6290184355221807305
+    second: BidGamehandsSpritesheet_25
+  - first:
+      213: -9126742753473990969
+    second: BidGamehandsSpritesheet_26
+  - first:
+      213: -966559426728994621
+    second: BidGamehandsSpritesheet_27
+  - first:
+      213: -1539303945946241497
+    second: BidGamehandsSpritesheet_28
+  - first:
+      213: -30707841253603947
+    second: BidGamehandsSpritesheet_29
+  - first:
+      213: 7726273992682320092
+    second: BidGamehandsSpritesheet_30
+  - first:
+      213: -4674955503606879864
+    second: BidGamehandsSpritesheet_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 175
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459ebb5b54bb7bba0800000000000000
+      internalID: -6073179664409695916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1d40d0edc53fa70800000000000000
+      internalID: 8859527000738812323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 3072
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f03edcd5f7f8c5f0800000000000000
+      internalID: -736065903730478861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97d8d19c4960fe10800000000000000
+      internalID: 2229397593133733789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2053
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9ae8b7e4f7c59a0800000000000000
+      internalID: -6242975008385226247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 2048
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be0a781faebe5580800000000000000
+      internalID: -8836415759615127884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f98f8967e315adf0800000000000000
+      internalID: -169707526327137804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e770001d05f0ff0800000000000000
+      internalID: -67746610808390042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1039
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e713359c4d64115e0800000000000000
+      internalID: -1940692084695289474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4860912309758b520800000000000000
+      internalID: 2718018651945502340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9f9764908883bb0800000000000000
+      internalID: -4956061816502748760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BidGamehandsSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698d86ee92e631e10800000000000000
+      internalID: 2167196972067903638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: de530af0fd31c5b4ca894faaf00d29ee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BidGamehandsSpritesheet_0: -6073179664409695916
+      BidGamehandsSpritesheet_1: 8859527000738812323
+      BidGamehandsSpritesheet_10: -4956061816502748760
+      BidGamehandsSpritesheet_11: 2167196972067903638
+      BidGamehandsSpritesheet_2: -736065903730478861
+      BidGamehandsSpritesheet_3: 2229397593133733789
+      BidGamehandsSpritesheet_4: -6242975008385226247
+      BidGamehandsSpritesheet_5: -8836415759615127884
+      BidGamehandsSpritesheet_6: -169707526327137804
+      BidGamehandsSpritesheet_7: -67746610808390042
+      BidGamehandsSpritesheet_8: -1940692084695289474
+      BidGamehandsSpritesheet_9: 2718018651945502340
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
