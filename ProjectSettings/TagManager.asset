@@ -44,5 +44,8 @@ TagManager:
   - name: Consumable
     uniqueID: 1205729429
     locked: 0
+  - name: Hand
+    uniqueID: 3547779325
+    locked: 0
   m_RenderingLayers:
   - Default

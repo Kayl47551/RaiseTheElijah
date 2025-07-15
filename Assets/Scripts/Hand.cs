@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Hand : MonoBehaviour
 {
     Rigidbody2D rigibody2D;
+    Animator animator;
 
     public GameObject holding = null;
     public Entity entity = null;
@@ -16,6 +17,7 @@ public class Hand : MonoBehaviour
     private void Start()
     {
         rigibody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,6 +51,8 @@ public class Hand : MonoBehaviour
             entity = holding.GetComponent<Entity>();
             holding.transform.parent = transform;
             entity.changeState(Entity.State.Held);
+            holding.transform.position = transform.position;
+            animator.SetBool("isClosed", true);
         }
         else if (Input.GetMouseButton(0) == false)
         {
@@ -59,6 +63,7 @@ public class Hand : MonoBehaviour
             }
             holding = null;
             entity = null;
+            animator.SetBool("isClosed", false);
         }
     }
 
