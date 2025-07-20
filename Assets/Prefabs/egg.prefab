@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4072622106568590741, guid: 4c63041f13b2f9040a479c170d9c1842, type: 3}
+  m_Sprite: {fileID: -8758199282619427438, guid: 3181cf8126854264e87ef9c0851898ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.86, y: 1.01}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,6 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  egg: {fileID: -8758199282619427438, guid: 3181cf8126854264e87ef9c0851898ab, type: 3}
+  redEgg: {fileID: -916411178496489549, guid: 3181cf8126854264e87ef9c0851898ab, type: 3}
+  eggSplatter: {fileID: 6411616102226846967, guid: 3181cf8126854264e87ef9c0851898ab, type: 3}
+  eggSplosion: {fileID: -7981719381298949191, guid: 3181cf8126854264e87ef9c0851898ab, type: 3}
 --- !u!65 &247291825049792153
 BoxCollider:
   m_ObjectHideFlags: 0

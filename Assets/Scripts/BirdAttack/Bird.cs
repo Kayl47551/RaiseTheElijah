@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 public class Bird : MonoBehaviour
 {
     Rigidbody rigibody;
+    Animator animator;
 
     public int health = 3;
 
     bool frozen = false;
     float frozenTimer = 0;
-    public float freezeLength = 0.3f;
+    public float freezeLength = 0.4f;
     bool gotHit = false;
     bool diveSuccess = false;
 
@@ -21,7 +22,7 @@ public class Bird : MonoBehaviour
         egg,
     };
 
-    State state = State.dive;
+    State state = State.hover;
 
     Vector3 rightBound = new Vector3(10, 8, 10);
     Vector3 leftBound = new Vector3(-10, 8, 10);
@@ -43,7 +44,6 @@ public class Bird : MonoBehaviour
     float eggTimer;
     float eggDelay = 0.8f;
     public GameObject eggPrefab;
-    int eggSpeed = 5;
     GameObject eggTemp;
     Egg eggScript;
 
@@ -52,6 +52,7 @@ public class Bird : MonoBehaviour
     private void Start()
     {
         rigibody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
         diveAttackPoint = attackObject.transform.position;
         eggAttackPointLeft = attackObject.transform.position + new Vector3(-0.75f, 1.6f, 0);
@@ -86,7 +87,10 @@ public class Bird : MonoBehaviour
         {
             frozenTimer -= Time.deltaTime;
             if (frozenTimer <= 0)
+            {
                 frozen = false;
+                animator.SetBool("Freeze", false);
+            }
         }
     }
 
@@ -104,7 +108,7 @@ public class Bird : MonoBehaviour
                 else updateState(State.egg);
             }
         }
-
+        animator.SetFloat("LeftRight", direction.x);
         if (transform.position.x >= rightBound.x)
         {
             direction = -direction;
@@ -120,14 +124,15 @@ public class Bird : MonoBehaviour
 
     void dive()
     {
-        if (gotHit || diveSuccess)
+        if (gotHit || diveSuccess) // returns if got hit or successfull attack (got hit code is in ontriggerstay)
             direction = returnPoint - transform.position;
         else direction = diveAttackPoint - transform.position;
 
         direction.Normalize();
 
-        if (isTouchingPlayer && !diveSuccess)
+        if (isTouchingPlayer && !diveSuccess) // sucessfull attack
         {
+            animator.SetTrigger("Return");
             diveSuccess = true;
             player.updateHealth(1);
         }
@@ -148,13 +153,13 @@ public class Bird : MonoBehaviour
             eggTemp = Instantiate(eggPrefab, transform.position, Quaternion.identity);
             eggScript = eggTemp.GetComponent<Egg>();
 
-            if (Random.Range(1, 6) > 1)
-                eggSpeed = 5;
-            else eggSpeed = 10;
+            if (Random.Range(1, 6) > 1) // 1/5 chance of fast egg
+                eggScript.updateState(0);
+            else eggScript.updateState(1);
 
-            if (Random.Range(1, 3) == 1)
-                eggScript.changeTrajectory(eggAttackPointLeft, eggSpeed);
-            else eggScript.changeTrajectory(eggAttackPointRight, eggSpeed);
+            if (Random.Range(1, 3) == 1) // left or right
+                eggScript.changeTrajectory(eggAttackPointLeft);
+            else eggScript.changeTrajectory(eggAttackPointRight);
 
             eggsAmt--;
             eggTimer = eggDelay;
@@ -167,22 +172,25 @@ public class Bird : MonoBehaviour
 
     void updateState(State newState)
     {
-        if (newState == State.hover)
+        if (newState == State.hover) // hover
         {
+            animator.SetBool("Hover", true);
             if (state == State.dive)
                 direction = previousHoverDirection;
             speed = 4;
 
             nextActionTimer = Random.Range(3, 5f);
         }
-        else if (newState == State.dive)
+        else if (newState == State.dive) // dive
         {
+            animator.SetBool("Hover", false);
+            animator.SetTrigger("Dive");
             previousHoverDirection = direction;
             gotHit = false;
             diveSuccess = false;
             speed = 9;
         }
-        else if (newState == State.egg)
+        else if (newState == State.egg) // egg
         {
             eggTimer = eggDelay;
             eggsAmt = Random.Range(1, 6);
@@ -200,8 +208,9 @@ public class Bird : MonoBehaviour
     {
         if (other.GetComponent<BirdAttackPlayer>() != null)
             isTouchingPlayer = true;
-        else if (state == State.dive && gotHit == false)
+        else if (state == State.dive && !gotHit && !diveSuccess) // got hit
         {
+            animator.SetBool("Freeze", true);
             updateHealth(1);
             frozen = true;
             frozenTimer = freezeLength;
