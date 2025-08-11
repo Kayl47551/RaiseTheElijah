@@ -6,7 +6,8 @@ public class ElijahPoints : Entity
     public int elijahPoints = 0;
     public TextMeshProUGUI pointDisplay;
 
-    protected override void Held()
+
+    protected override void changeStateEffectFTH()
     {
         Hand hand = GetComponentInParent<Hand>();
         if (hand != null)

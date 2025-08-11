@@ -1,31 +1,30 @@
 using UnityEngine;
 
-public abstract class Consumable : Entity
+public class Consumable : Entity
 {
-    protected Elijah elijah = null;
-    protected bool onElijah = false;
-    protected override void changeStateEffectHTF()
+    public Elijah elijah = null;
+    public int foodID;
+
+    public int hunger;
+    public int thirst;
+    public int happiness;
+    public int addiction;
+
+    private void Awake()
     {
-        if (onElijah)
-        {
-            stats();
-            Destroy(gameObject);
-        }
+        entityID = 1;
+        targetID = 0;
+        interactionPriority = -1;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        elijah = collision.gameObject.GetComponent<Elijah>();
-        if (elijah != null)
-            onElijah = true;
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void droppedOverInteraction()
     {
-        elijah = collision.gameObject.GetComponent<Elijah>();
-        if (elijah != null)
-            onElijah = false;
+        elijah = (Elijah)hoveringOver;
+        elijah.updateHunger(hunger);
+        elijah.updateThirst(thirst);
+        elijah.updateHappiness(happiness);
+        elijah.updateAddiction(addiction);
+        Destroy(gameObject);
     }
-
-    protected abstract void stats();
 }

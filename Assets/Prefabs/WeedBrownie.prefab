@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4090128316167337144}
   - component: {fileID: 1371391117402155172}
   - component: {fileID: 3526960614827850540}
-  - component: {fileID: 5009901246421637695}
+  - component: {fileID: 6548702847646731346}
   m_Layer: 0
   m_Name: WeedBrownie
   m_TagString: Untagged
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &5009901246421637695
+--- !u!114 &6548702847646731346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2454214799439249391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107070dc2b20ba64fbf389c7da0f1eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 942df9370ef34644c89364dde27462eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   boxCollider: {fileID: 0}
+  entityID: 0
+  interactionPriority: 0
+  onTarget: 0
   state: 0
+  elijah: {fileID: 0}
+  foodID: 1
+  hunger: 30
+  thirst: 0
+  happiness: 40
+  addiction: 10

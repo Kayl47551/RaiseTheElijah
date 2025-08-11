@@ -16,10 +16,18 @@ public class Elijah : Entity
     float thirstDebuff = 0;
 
     int elijahPointsCD = 15;
-    float elijahPoints = 0;
-    float elijahPointsTimer;
+    public float elijahPoints = 0;
+    public float elijahPointsTimer;
     GameObject elijahPointsObject;
     float elijahPointsMulti = 0.02f;
+
+
+    private void Awake()
+    {
+        entityID = 0;
+        targetID = -1;
+        interactionPriority = -1;
+    }
 
     protected override void Start()
     {
@@ -29,12 +37,10 @@ public class Elijah : Entity
         Status.instance.updateHappinessDisplay((int)happiness);
         Status.instance.updateAddictionDisplay((int)addiction);
         elijahPointsTimer = elijahPointsCD;
-    }
+    } 
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
-
         // decreases hunger
         if (hunger > 0)
             updateHunger(-(Time.deltaTime / 4.0f));
@@ -91,7 +97,7 @@ public class Elijah : Entity
     public void updateHappiness(float happiness)
     {
         if (this.happiness + happiness < 0)
-            happiness = 0;
+            this.happiness = 0;
         else
             this.happiness += happiness;
 

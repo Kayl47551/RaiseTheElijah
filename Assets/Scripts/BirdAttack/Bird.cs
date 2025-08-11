@@ -134,7 +134,7 @@ public class Bird : MonoBehaviour
         {
             animator.SetTrigger("Return");
             diveSuccess = true;
-            player.updateHealth(1);
+            player.updateHealth(-1);
         }
 
         if ((Mathf.Approximately(transform.position.z, 10) || transform.position.z >= 10) && (gotHit || diveSuccess))
@@ -201,7 +201,14 @@ public class Bird : MonoBehaviour
 
     public void updateHealth(int hp)
     {
-        health -= hp;
+        health += hp;
+        if (hp < 0)
+        {
+            animator.SetBool("Freeze", true);
+            frozen = true;
+            frozenTimer = freezeLength;
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -210,10 +217,7 @@ public class Bird : MonoBehaviour
             isTouchingPlayer = true;
         else if (state == State.dive && !gotHit && !diveSuccess) // got hit
         {
-            animator.SetBool("Freeze", true);
-            updateHealth(1);
-            frozen = true;
-            frozenTimer = freezeLength;
+            updateHealth(-1);
             gotHit = true;
         }
     }

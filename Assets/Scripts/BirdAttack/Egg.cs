@@ -45,7 +45,7 @@ public class Egg : MonoBehaviour
             BirdAttackPlayer player = other.GetComponent<BirdAttackPlayer>();
             if (player != null)
             {
-                player.updateHealth(1);
+                player.updateHealth(-1);
                 updateState(2);
             }
             else if (other.GetComponent<Bird>() == null && other.GetComponent<Egg>() == null)
@@ -69,7 +69,8 @@ public class Egg : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = eggSplatter;
             dead = true;
-            transform.position += new Vector3(Random.Range(-2f, 2f) ,Random.Range(-1.7f, 1f), 0);
+            countDown += 0.2f;
+            transform.position += new Vector3(Random.Range(-1f, 1f) ,Random.Range(-1f, 1f), 0);
         }
         else if (state == 3)
         {

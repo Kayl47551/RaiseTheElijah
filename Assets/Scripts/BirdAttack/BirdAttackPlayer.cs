@@ -19,6 +19,7 @@ public class BirdAttackPlayer : MonoBehaviour
     BoxCollider slamCollider;
 
     public int health = 5;
+    public Hearts hearts;
 
     void Start()
     {
@@ -77,6 +78,7 @@ public class BirdAttackPlayer : MonoBehaviour
 
     public void updateHealth(int hp)
     {
-        health -= hp;
+        health += hp;
+        hearts.updateHearts(-1);
     }
 }

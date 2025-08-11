@@ -12,12 +12,18 @@ public class Hand : MonoBehaviour
     public Entity entity = null;
     public GameObject hoveringOver = null;
 
+    public InputAction hold;
+    public InputAction interact;
+
     public int elijahPoints = 0;
 
     private void Start()
     {
         rigibody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        hold.Enable();
+        interact.Enable();
     }
 
     void Update()
@@ -45,7 +51,7 @@ public class Hand : MonoBehaviour
 
     private void holdCheck()
     {
-        if (hoveringOver != null && holding == null && Input.GetMouseButtonDown(0))
+        if (hoveringOver != null && holding == null && hold.triggered)
         {
             holding = hoveringOver;
             entity = holding.GetComponent<Entity>();
@@ -54,7 +60,7 @@ public class Hand : MonoBehaviour
             holding.transform.position = transform.position;
             animator.SetBool("isClosed", true);
         }
-        else if (Input.GetMouseButton(0) == false)
+        else if (!hold.IsPressed())
         {
             if (holding != null)
             {
@@ -64,6 +70,18 @@ public class Hand : MonoBehaviour
             holding = null;
             entity = null;
             animator.SetBool("isClosed", false);
+        }
+    }
+
+
+    private void interactCheck()
+    {
+        if (hoveringOver != null && holding == null && interact.triggered)
+        {
+            if (entity != null && entity.hasInteraction)
+            {
+                entity.interaction();
+            }
         }
     }
 
