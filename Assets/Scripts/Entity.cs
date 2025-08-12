@@ -131,7 +131,7 @@ public abstract class Entity : MonoBehaviour
                 onTarget = true;
                 return;
             }
-            else
+            else // if not target
             {
                 // if list is currently empty
                 if (interactionList.First == null)
@@ -142,14 +142,14 @@ public abstract class Entity : MonoBehaviour
 
                 // if not
                 interactionIt = interactionList.First;
-                if (interactionIt.Value.interactionPriority <= temp.interactionPriority)
+                if (interactionIt.Value.interactionPriority <= temp.interactionPriority && interactionIt.Value.entityID != targetID) // if has lower or equal priority and not a target
                 {
                     interactionList.AddBefore(interactionIt, temp);
                     return;
                 }
                 while(interactionIt.Next != null)
                 {
-                    if (interactionIt.Value.interactionPriority <= temp.interactionPriority)
+                    if (interactionIt.Value.interactionPriority <= temp.interactionPriority && interactionIt.Value.entityID != targetID) // if has lower or equal priority and not a target
                     {
                         interactionList.AddBefore(interactionIt, temp);
                         return;
@@ -167,10 +167,13 @@ public abstract class Entity : MonoBehaviour
             return;
 
         interactionList.Remove(collision.GetComponent<Entity>());
-        if (interactionList.First != null && interactionList.First.Value.entityID != targetID)
+        if (interactionList.First != null)                       // if list is empty obviously it is not on target
+        {
             onTarget = false;
+            return;
+        }
 
-        if (interactionList.First == null)
+        if (interactionList.First.Value.entityID != targetID)    // if first item in list is not target it is not on target
             onTarget = false;
     }
 }
