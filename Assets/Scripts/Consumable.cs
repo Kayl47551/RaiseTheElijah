@@ -20,7 +20,7 @@ public class Consumable : Entity
 
     protected override void DroppedOverInteraction()
     {
-        elijah = (Elijah)hoveringOver;
+        elijah = (Elijah)interactionList.First.Value;
         elijah.UpdateHunger(hunger);
         elijah.UpdateThirst(thirst);
         elijah.UpdateHappiness(happiness);
