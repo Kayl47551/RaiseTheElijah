@@ -22,24 +22,24 @@ public class Status : MonoBehaviour
         addictionDisplay = transform.GetChild(3).GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void updateHungerDisplay(float hunger)
+    public void UpdateHungerDisplay(float hunger)
     {
         Vector3 width = new Vector3((hunger / 100f), 1, 1);
         hungerDisplay.transform.localScale = width;
     }
 
-    public void updateThirstDisplay(float thirst)
+    public void UpdateThirstDisplay(float thirst)
     {
         Vector3 width = new Vector3((thirst / 100f), 1, 1);
         thirstDisplay.transform.localScale = width;
     }
 
-    public void updateHappinessDisplay(int happiness)
+    public void UpdateHappinessDisplay(int happiness)
     {
         happinessDisplay.text = happiness.ToString();
     }
 
-    public void updateAddictionDisplay(int addiction)
+    public void UpdateAddictionDisplay(int addiction)
     {
         addictionDisplay.text = addiction.ToString();
     }

@@ -32,7 +32,8 @@ public class Hand : MonoBehaviour
         mousePos.z = 0;
         transform.position = mousePos;
 
-        holdCheck();
+        HoldCheck();
+        InteractCheck();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -49,14 +50,14 @@ public class Hand : MonoBehaviour
             hoveringOver = null;
     }
 
-    private void holdCheck()
+    private void HoldCheck()
     {
         if (hoveringOver != null && holding == null && hold.triggered)
         {
             holding = hoveringOver;
             entity = holding.GetComponent<Entity>();
             holding.transform.parent = transform;
-            entity.changeState(Entity.State.Held);
+            entity.ChangeState(Entity.State.Held);
             holding.transform.position = transform.position;
             animator.SetBool("isClosed", true);
         }
@@ -64,7 +65,7 @@ public class Hand : MonoBehaviour
         {
             if (holding != null)
             {
-                entity.changeState(Entity.State.Floor);
+                entity.ChangeState(Entity.State.Floor);
                 holding.transform.parent = null;
             }
             holding = null;
@@ -74,13 +75,13 @@ public class Hand : MonoBehaviour
     }
 
 
-    private void interactCheck()
+    private void InteractCheck()
     {
         if (hoveringOver != null && holding == null && interact.triggered)
         {
             if (entity != null && entity.hasInteraction)
             {
-                entity.interaction();
+                entity.Interaction();
             }
         }
     }

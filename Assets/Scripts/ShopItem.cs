@@ -5,7 +5,7 @@ public class ShopItem : MonoBehaviour
 {
     public GameObject Item;
 
-    public void buy()
+    public void Buy()
     {
         Instantiate(Item);
     }

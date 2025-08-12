@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -12,6 +13,8 @@ public abstract class Entity : MonoBehaviour
     protected int targetID;
     public bool onTarget = false;
     protected Entity hoveringOver = null;
+
+    LinkedList<Entity> interactionList = new LinkedList<Entity>();
 
     public bool hasInteraction = false;
 
@@ -44,25 +47,27 @@ public abstract class Entity : MonoBehaviour
     }
 
 
-    public virtual void changeState(State state)
+    public virtual void ChangeState(State state)
     {
         this.state = state;
         switch (state)
         {
             case (State.Floor):
-                changeStateEffectHTF();
+                ChangeStateEffectHTF();
                 transform.localScale = Vector3.one;
                 boxCollider.isTrigger = false;
+
                 if (onTarget)
-                    droppedOverInteraction();
+                    DroppedOverInteraction();
                 else if (hoveringOver != null)
-                    hoveringOver.droppedOnInteraction();
+                    hoveringOver.DroppedOnInteraction(this);
+
                 onTarget = false;
                 hoveringOver = null;
                 break;
 
             case (State.Held):
-                changeStateEffectFTH();
+                ChangeStateEffectFTH();
                 boxCollider.isTrigger = true;
                 transform.localScale = heldSize;
                 break;
@@ -70,31 +75,31 @@ public abstract class Entity : MonoBehaviour
     }
 
 
-    protected virtual void changeStateEffectHTF()
+    protected virtual void ChangeStateEffectHTF()
     {
 
     }
 
 
-    protected virtual void changeStateEffectFTH()
+    protected virtual void ChangeStateEffectFTH()
     {
 
     }
 
 
-    public virtual void interaction()
+    public virtual void Interaction()
     {
 
     }
 
 
-    protected virtual void droppedOnInteraction()
+    protected virtual bool DroppedOnInteraction(Entity drop)
     {
-
+        return false;
     }
 
 
-    protected virtual void droppedOverInteraction()
+    protected virtual void DroppedOverInteraction()
     {
 
     }

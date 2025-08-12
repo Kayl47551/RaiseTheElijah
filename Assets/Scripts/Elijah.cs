@@ -32,10 +32,10 @@ public class Elijah : Entity
     protected override void Start()
     {
         base.Start();
-        Status.instance.updateHungerDisplay(hunger);
-        Status.instance.updateThirstDisplay(thirst);
-        Status.instance.updateHappinessDisplay((int)happiness);
-        Status.instance.updateAddictionDisplay((int)addiction);
+        Status.instance.UpdateHungerDisplay(hunger);
+        Status.instance.UpdateThirstDisplay(thirst);
+        Status.instance.UpdateHappinessDisplay((int)happiness);
+        Status.instance.UpdateAddictionDisplay((int)addiction);
         elijahPointsTimer = elijahPointsCD;
     } 
 
@@ -43,22 +43,22 @@ public class Elijah : Entity
     {
         // decreases hunger
         if (hunger > 0)
-            updateHunger(-(Time.deltaTime / 4.0f));
+            UpdateHunger(-(Time.deltaTime / 4.0f));
 
         // decreases thirst
         if (thirst > 0)
-            updateThirst(-(Time.deltaTime / 2.0f));
+            UpdateThirst(-(Time.deltaTime / 2.0f));
 
         // how much happiness to decrease
         sadnessMulti += Time.deltaTime * addiction * sadnessMultiMulti;
 
         // decreases happiness
         if (happiness > 0)
-            updateHappiness(-(Time.deltaTime * ((sadnessMulti * hungerDebuff * thirstDebuff) + ((hungerDebuff - 1) * (thirstDebuff - 1)))));
+            UpdateHappiness(-(Time.deltaTime * ((sadnessMulti * hungerDebuff * thirstDebuff) + ((hungerDebuff - 1) * (thirstDebuff - 1)))));
 
         // decreases addiction
         if (addiction > 0)
-            updateAddiction(-(Time.deltaTime / 2.0f));
+            UpdateAddiction(-(Time.deltaTime / 2.0f));
 
         // elijah points
         elijahPoints += Time.deltaTime * happiness * elijahPointsMulti;
@@ -68,43 +68,43 @@ public class Elijah : Entity
         {
             elijahPointsTimer = elijahPointsCD;
             elijahPointsObject = Instantiate(elijahPointsPrefab, transform.position, Quaternion.identity);
-            elijahPointsObject.GetComponent<ElijahPoints>().updatePoints((int)elijahPoints);
+            elijahPointsObject.GetComponent<ElijahPoints>().UpdatePoints((int)elijahPoints);
             elijahPoints = 0;
         }
        
     }
 
-    public void updateHunger(float hunger)
+    public void UpdateHunger(float hunger)
     {
         this.hunger = Mathf.Clamp(this.hunger + hunger, 0, 100);
         if (hunger <= 0)
                hungerDebuff = 1;
         else hungerDebuff = 1.5f;
 
-        Status.instance.updateHungerDisplay(this.hunger);
+        Status.instance.UpdateHungerDisplay(this.hunger);
     }
 
-    public void updateThirst(float thirst)
+    public void UpdateThirst(float thirst)
     {
         this.thirst = Mathf.Clamp(this.thirst + thirst, 0, 100);
         if (thirst <= 0)
             thirstDebuff = 1;
         else thirstDebuff = 1.5f;
 
-        Status.instance.updateThirstDisplay(this.thirst);
+        Status.instance.UpdateThirstDisplay(this.thirst);
     }
 
-    public void updateHappiness(float happiness)
+    public void UpdateHappiness(float happiness)
     {
         if (this.happiness + happiness < 0)
             this.happiness = 0;
         else
             this.happiness += happiness;
 
-        Status.instance.updateHappinessDisplay((int)this.happiness);
+        Status.instance.UpdateHappinessDisplay((int)this.happiness);
     }
 
-    public void updateAddiction(float addiction)
+    public void UpdateAddiction(float addiction)
     {
         if (this.addiction + addiction < 0)
             happiness = 0;
@@ -114,6 +114,6 @@ public class Elijah : Entity
         if (this.addiction <= 0)
             sadnessMulti = 0;
 
-        Status.instance.updateAddictionDisplay((int)this.addiction);
+        Status.instance.UpdateAddictionDisplay((int)this.addiction);
     }
 }

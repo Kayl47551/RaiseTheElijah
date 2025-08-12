@@ -18,13 +18,13 @@ public class Consumable : Entity
     }
 
 
-    protected override void droppedOverInteraction()
+    protected override void DroppedOverInteraction()
     {
         elijah = (Elijah)hoveringOver;
-        elijah.updateHunger(hunger);
-        elijah.updateThirst(thirst);
-        elijah.updateHappiness(happiness);
-        elijah.updateAddiction(addiction);
+        elijah.UpdateHunger(hunger);
+        elijah.UpdateThirst(thirst);
+        elijah.UpdateHappiness(happiness);
+        elijah.UpdateAddiction(addiction);
         Destroy(gameObject);
     }
 }

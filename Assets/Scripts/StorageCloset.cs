@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class StorageCloset : MonoBehaviour
+public class StorageCloset : Entity
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        entityID = 2;
+        targetID = -1;
+        interactionPriority = 10;
     }
 }
