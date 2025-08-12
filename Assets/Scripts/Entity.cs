@@ -71,8 +71,6 @@ public abstract class Entity : MonoBehaviour
                     }
                 }
 
-                interactionList.Clear();
-                onTarget = false;
                 break;
 
             case (State.Held):
@@ -160,14 +158,77 @@ public abstract class Entity : MonoBehaviour
     }
 
 
-
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (state != State.Held)
             return;
 
         interactionList.Remove(collision.GetComponent<Entity>());
-        if (interactionList.First != null)                       // if list is empty obviously it is not on target
+        if (interactionList.First == null)                       // if list is empty obviously it is not on target
+        {
+            onTarget = false;
+            return;
+        }
+
+        if (interactionList.First.Value.entityID != targetID)    // if first item in list is not target it is not on target
+            onTarget = false;
+    }
+
+
+
+
+    // copied same thing for collider
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state != State.Held)
+            return;
+
+        Entity temp = collision.gameObject.GetComponent<Entity>();
+        if (temp != null)
+        {
+            // if found a target
+            if (temp.entityID == targetID)
+            {
+                interactionList.AddFirst(temp);
+                onTarget = true;
+                return;
+            }
+            else // if not target
+            {
+                // if list is currently empty
+                if (interactionList.First == null)
+                {
+                    interactionList.AddFirst(temp);
+                    return;
+                }
+
+                // if not
+                interactionIt = interactionList.First;
+                if (interactionIt.Value.interactionPriority <= temp.interactionPriority && interactionIt.Value.entityID != targetID) // if has lower or equal priority and not a target
+                {
+                    interactionList.AddBefore(interactionIt, temp);
+                    return;
+                }
+                while (interactionIt.Next != null)
+                {
+                    if (interactionIt.Value.interactionPriority <= temp.interactionPriority && interactionIt.Value.entityID != targetID) // if has lower or equal priority and not a target
+                    {
+                        interactionList.AddBefore(interactionIt, temp);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (state != State.Held)
+            return;
+
+        interactionList.Remove(collision.gameObject.GetComponent<Entity>());
+        if (interactionList.First == null)                       // if list is empty obviously it is not on target
         {
             onTarget = false;
             return;
