@@ -66,8 +66,16 @@ public abstract class Entity : MonoBehaviour
                     }
                     else                                                         // if there isnt a target
                     {
-                        // change it to loop until a dropped over interaction returns true
-                        interactionList.First.Value.DroppedOnInteraction(this);
+                        //loop until a dropped over interaction returns true
+                        interactionIt = interactionList.First;
+
+                        if (interactionIt != null && interactionIt.Value.interactionPriority >= 0 && interactionIt.Value.DroppedOnInteraction(this))
+                            break;
+                        while (interactionIt.Next != null)
+                        {
+                            if (interactionIt.Value.interactionPriority >= 0 && interactionIt.Value.DroppedOnInteraction(this))
+                                break;
+                        }
                     }
                 }
 
@@ -101,8 +109,9 @@ public abstract class Entity : MonoBehaviour
 
 
     // if something got dropped on this
-    protected virtual bool DroppedOnInteraction(Entity drop)
+    public virtual bool DroppedOnInteraction(Entity drop)
     {
+        Debug.Log("parent");
         return false;
     }
 
