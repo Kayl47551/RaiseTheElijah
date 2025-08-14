@@ -40,7 +40,10 @@ public class Hand : MonoBehaviour
     {
         Entity temp = collision.gameObject.GetComponent<Entity>();
         if (temp != null)
+        {
             hoveringOver = collision.gameObject;
+            entity = temp;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -55,7 +58,6 @@ public class Hand : MonoBehaviour
         if (hoveringOver != null && holding == null && hold.triggered)
         {
             holding = hoveringOver;
-            entity = holding.GetComponent<Entity>();
             holding.transform.parent = transform;
             entity.ChangeState(Entity.State.Held);
             holding.transform.position = transform.position;
@@ -69,7 +71,6 @@ public class Hand : MonoBehaviour
                 holding.transform.parent = null;
             }
             holding = null;
-            entity = null;
             animator.SetBool("isClosed", false);
         }
     }

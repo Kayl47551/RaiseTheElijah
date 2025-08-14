@@ -3,6 +3,7 @@ using UnityEngine;
 public class Fridge : Entity
 {
     int[] stored = new int[50];
+    GameObject fridgeUI;
 
     private void Awake()
     {
@@ -10,12 +11,15 @@ public class Fridge : Entity
         targetID = -1;
         interactionPriority = 10;
         hasInteraction = true;
+
+        fridgeUI = transform.GetChild(0).gameObject;
     }
 
 
+    // opens fridge
     public override void Interaction()
     {
-        
+        fridgeUI.SetActive(true);
     }
 
 
@@ -42,6 +46,12 @@ public class Fridge : Entity
 
     public void TakeOut(GameObject food)
     {
+        int tempFoodID = food.GetComponent<Consumable>().foodID;
+        if (stored[tempFoodID] > 0)
+        {
+            stored[tempFoodID]--;
+            Instantiate(food, transform.position, Quaternion.identity);
+        }
 
     }
 
@@ -49,5 +59,11 @@ public class Fridge : Entity
     void UpdateDisplay(int food)
     {
 
+    }
+
+
+    public void closeFridge()
+    {
+        fridgeUI.SetActive(false);
     }
 }
