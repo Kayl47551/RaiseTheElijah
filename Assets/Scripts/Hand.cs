@@ -39,7 +39,7 @@ public class Hand : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Entity temp = collision.gameObject.GetComponent<Entity>();
-        if (temp != null)
+        if (holding == null && temp != null)
         {
             hoveringOver = collision.gameObject;
             entity = temp;

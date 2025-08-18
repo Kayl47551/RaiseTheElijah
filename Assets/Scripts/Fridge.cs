@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class Fridge : Entity
 {
     int[] stored = new int[50];
     GameObject fridgeUI;
+    Transform contents;
 
     private void Awake()
     {
@@ -13,6 +15,7 @@ public class Fridge : Entity
         hasInteraction = true;
 
         fridgeUI = transform.GetChild(0).gameObject;
+        contents = transform.GetChild(0).GetChild(0).GetChild(0);
     }
 
 
@@ -51,6 +54,7 @@ public class Fridge : Entity
         {
             stored[tempFoodID]--;
             Instantiate(food, transform.position, Quaternion.identity);
+            UpdateDisplay(tempFoodID);
         }
 
     }
@@ -58,7 +62,7 @@ public class Fridge : Entity
 
     void UpdateDisplay(int food)
     {
-
+        contents.GetChild(food).GetComponentInChildren<TextMeshProUGUI>().text = stored[food].ToString();
     }
 
 
